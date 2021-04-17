@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Farmer Login</title>
+
+  </head>
+  <body>
+   
+    <section class="Form my-4 mx-5">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-5">
+                  <img src="assets/Images/i6.jpg" class="img-fluid" alt="">  
+                </div>
+                <div class="col-lg-7 px-5 pt-5">
+                    <h1 class="font-weight-bold py-3">Farmer Login</h1>
+                    <h4>Sign into your account</h4><br/>
+                    <!-- <form #loginForm="ngForm" (ngSubmit)="checkLogin(loginForm)"> -->
+                        <form #loginForm="ngForm" (ngSubmit)="checkLogin(loginForm)">
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                               <input type="email" #em="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  name="email" placeholder="Email-Address" class="form-control " required [(ngModel)]=email> 
+                               <div *ngIf="em.invalid && (em.dirty || em.touched)" style="color: red;border-color: red;">
+                                <div *ngIf="em.errors.required"> Email is required </div>
+                                <div *ngIf="em.errors.pattern"> Email is invalid </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                               <input type="password" placeholder="******"  #pwd="ngModel" minlength="8"
+                               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" name="pwd" class="form-control" required [(ngModel)]= password> 
+                               <div *ngIf="em.invalid && (pwd.dirty || pwd.touched)" style="color: red;border-color: red;">
+                               <div *ngIf="pwd.errors.required"> Password is required </div>
+                               <div *ngIf="pwd.errors.pattern"> Password is invalid </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                              <button type="submit" class="btn1 mt-3 mb-5" >Login</button>
+                            </div>
+                        </div>
+                        <a href="#" class="forgot p4">Forgot Password</a><br/><br/>
+                        <p>Don't have an account? <a href="#">Farmer Registration here!!!</a></p><br/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

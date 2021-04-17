@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+                <div class="container register">
+                    <div class="row">
+                       <div class="col-md-3 register-left">
+                           <div *ngIf=frmr>
+                            <img src="assets/Images/farmer (2).png" alt=""/>  <br/>
+                           </div>
+                           <div *ngIf=!frmr>
+                           <img src="assets/Images/businessman1.png" alt=""/> <br/></div>
+                            <h2>WELCOME!</h2> 
+                           
+                            <input type="submit" name="" value="Login"/><br/>
+                        </div> 
+                        <div class="col-md-9 register-right">
+                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" [class.active]="frmr" id="home-tab"  (click)="toggle('farmer')">Farmer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" [class.active]="!frmr" id="profile-tab" (click)="toggle('bidder')">Bidder</a>
+                                </li>
+                            </ul> 
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home"   *ngIf=frmr>
+                                   
+                                    <h3 class="register-heading">APPLY AS FARMER</h3>
+                                    <form #farmerRegForm="ngForm" (ngSubmit)="onSubmit(farmerRegForm)">
+                                        <div class="row register-form">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Name *" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" placeholder="Password *" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Account no.*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Address*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="State*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Adhaar ID*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Pan ID*" value="" />
+                                                </div>
+                                                                              
+                                                <input type="reset" class="btnRegister btn-outline-danger"   value="Cancel"/>                                          
+                                          
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Email*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" minlength="10" maxlength="10" name="txtFarPhone" class="form-control" placeholder="Phone no.*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Land Area*" value="" />
+                                                </div>                                            
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="Pincode*" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"  placeholder="City*" value="" />
+                                                </div>                                                                                     
+                                                <div class="form-group">
+                                                    <input type="file" class="control" name="aadhaarfile" id="aadhaarfile">                                                
+                                                </div>                                            
+                                                <div class="form-group">
+                                                    <input type="file" class="control" name="panfile" id="panfile">                                                
+                                                </div>
+                                                
+                                                    <input type="submit" class="btnRegister btn-outline-success"  value="Register"/>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade show active" id="profile" *ngIf=!frmr>
+                                        <h3  class="register-heading">APPLY AS BIDDER</h3>
+                                        <form #bidderRegForm="ngForm" (ngSubmit)="onSubmit(bidderRegForm)">
+                                            <div class="row register-form">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Name *" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                         <input type="password" class="form-control" placeholder="Password *" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                         <input type="text" class="form-control"  placeholder="Address*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Pincode*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="City*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                       <input type="text" class="form-control"  placeholder="Adhaar ID*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  placeholder="Pan ID*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                       <input type="text" class="form-control"  placeholder="Trader License ID*" value="" />                                                
+                                                    </div>
+                                               
+                                                     <input type="reset" class="btnRegister btn-outline-danger"  style="margin-top: 36px;" value="Cancel"/>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                         <input type="text" minlength="10" maxlength="10" name="txtBidPhone" class="form-control" placeholder="Phone no.*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                          <input type="text" class="form-control"  placeholder="Account no.*" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                         <input type="text" class="form-control"  placeholder="State*" value="" />
+                                                    </div>                                         
+                                                    <div class="form-group" style="margin-top: 70px; ">
+                                                        <input type="file" class="control" name="aadhaarfile" id="aadhaarfile">                                                
+                                                    </div>                                          
+                                                    <div class="form-group">
+                                                        <input type="file" class="control" name="panfile" id="panfile">                                                
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="file" class="control" name="traderfile" id="traderfile">                                                
+                                                    </div>
+
+                                                        <input type="submit" class="btnRegister btn-outline-success"  value="Register"/>
+                                          
+                                                </div>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+</body>
+</html>

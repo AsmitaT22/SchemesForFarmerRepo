@@ -1,0 +1,168 @@
+/* NAV Side Bar--------------------------------------- */
+
+*{
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    /* background-image: url(~src/assets/Images/i21.jpg); */
+   background-color: rgb(133, 189, 133);
+    background-size: cover;
+    background-repeat: no-repeat;   
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+  
+   
+  
+}
+
+.nav-container{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.nav-container a{
+    display: block;
+    text-decoration: none;
+    background: #fff;
+    color: rgb(2, 77, 39);
+    text-transform: uppercase;
+    padding: 15px 10px 15px 10px;
+    margin: 5px 0;
+    height: 30px;
+    width: 250px;
+    padding-top: 30px;
+    letter-spacing: 1.5px;
+    box-shadow: 2px 2px 16px 0px rgba(0,0,0,.75);
+    position: relative;
+    margin-left: -200px;
+    transition: 0.5s ease;
+}
+
+
+.nav-container a span{
+    float: right;
+    width: 70px;
+    height: 100%;
+    
+    line-height: 50px;
+    text-align: center;
+    color: seashell;
+    background: rgb(2, 77, 39);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.nav-container a span i{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.nav-container a:hover{
+    margin-left: 0;
+} 
+/* -----CARD----------------------------------------------------- */
+.center,.front-face,.contents,.back-face{
+    position: absolute;
+}
+
+.center{
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 500px;
+    width: 500px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.front-face,.back-face{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    /* ---background-color: rgba(0,0,0,.75); */
+    /*------ background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)); */
+  background-image: url(~src/assets/Images/wheat.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.4,.2,.2,1);
+}
+
+.contents{
+    left: 0;
+    top: 50%;
+    width: 100%;
+    perspective: 100px;
+    transform: translateY(-50%) translateZ(60px) scale(.94) ;
+}
+
+.front p{
+    color:rgb(2, 39, 2);
+    font-size: 45px;
+    margin-bottom: 20px;
+   padding-top: 20%;
+   margin: 0 auto;
+   padding-bottom: 10px;
+}
+
+.front p:after{
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 100px;
+    padding-top: 1px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: rgb(2, 39, 2);
+}
+
+.front span{
+    color:rgb(2, 39, 2);
+    font-size: 30px ;
+}
+
+.back-face{
+    transform: rotateY(180deg);
+    background:  rgba(37, 34, 34, 0.7);
+
+}
+
+.back{
+    color: seashell;
+}
+
+.back h2{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+.back span{
+    font-size: 30px;
+}
+
+
+.center:hover > .back-face{
+    transform: rotateY(0deg);
+}
+
+.center:hover > .front-face{
+    transform: rotateY(-180deg);
+} 
+
+
